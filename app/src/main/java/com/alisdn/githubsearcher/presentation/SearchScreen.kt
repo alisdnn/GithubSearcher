@@ -50,6 +50,7 @@ import com.alisdn.githubsearcher.R
 import com.alisdn.githubsearcher.presentation.model.UserItem
 import com.alisdn.githubsearcher.presentation.model.UserReposItem
 import com.alisdn.githubsearcher.presentation.navigation.navigateRepoDetail
+import com.alisdn.githubsearcher.ui.SimpleTopAppBar
 import com.alisdn.githubsearcher.ui.theme.space
 
 @Composable
@@ -67,7 +68,7 @@ fun SearchScreen(
 ) {
     Scaffold(
         topBar = {
-//            SimpleTopAppBar(title = stringResource(id = R.string.app_name))
+            SimpleTopAppBar(title = stringResource(id = R.string.app_name))
         },
         content = {
             SearchScreenContent(

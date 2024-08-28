@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AddNavigation(){
     val navController: NavHostController = rememberNavController()
-    NavGraph() {
+    NavGraph(navController) {
         navController.navigateUp()
     }
 }

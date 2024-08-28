@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.alisdn.githubsearcher.R
 import com.alisdn.githubsearcher.presentation.state.BadgeState
+import com.alisdn.githubsearcher.ui.SimpleTopAppBar
 import com.alisdn.githubsearcher.ui.theme.space
 
 
@@ -39,7 +40,7 @@ internal fun RepoDetailScreen(
 ) {
     Scaffold(
         topBar = {
-//            SimpleTopAppBar(title = stringResource(id = R.string.app_name)) { onBackClick.invoke() }
+            SimpleTopAppBar(title = stringResource(id = R.string.app_name)) { onBackClick.invoke() }
         },
         content = {
 
