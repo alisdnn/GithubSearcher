@@ -10,11 +10,11 @@ interface ApiService {
     @GET("users/{userId}")
     suspend fun getUserDetail(
         @Path("userId") username: String
-    ): UserModel
+    ): UserResponse
 
     @GET("users/{userId}/repos")
     suspend fun getUserRepos(
         @Path("userId") username: String
-    ): List<UserReposModel>
+    ): List<UserReposResponse>
 
 }
