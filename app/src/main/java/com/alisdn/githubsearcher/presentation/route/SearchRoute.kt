@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.alisdn.githubsearcher.presentation.SearchScreen
-import com.alisdn.githubsearcher.presentation.SharedViewModel
+import com.alisdn.githubsearcher.presentation.screen.SearchScreen
+import com.alisdn.githubsearcher.presentation.viewmodel.SharedViewModel
 import com.alisdn.githubsearcher.presentation.viewmodel.SearchViewModel
 
 @Composable

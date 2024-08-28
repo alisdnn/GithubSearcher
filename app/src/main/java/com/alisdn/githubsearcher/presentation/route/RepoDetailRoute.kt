@@ -3,8 +3,8 @@ package com.alisdn.githubsearcher.presentation.route
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.alisdn.githubsearcher.presentation.RepoDetailScreen
-import com.alisdn.githubsearcher.presentation.SharedViewModel
+import com.alisdn.githubsearcher.presentation.screen.RepoDetailScreen
+import com.alisdn.githubsearcher.presentation.viewmodel.SharedViewModel
 
 @Composable
 internal fun RepoDetailRoute(

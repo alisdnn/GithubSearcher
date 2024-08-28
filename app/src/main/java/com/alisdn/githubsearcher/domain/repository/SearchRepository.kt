@@ -1,7 +1,8 @@
-package com.alisdn.githubsearcher.domain.model
+package com.alisdn.githubsearcher.domain.repository
 
 import com.alisdn.githubsearcher.data.network.ApiService
-import com.alisdn.githubsearcher.data.network.toUserReposeModel
+import com.alisdn.githubsearcher.data.network.response.toUserReposeModel
+import com.alisdn.githubsearcher.domain.model.UserReposModel
 import javax.inject.Inject
 
 class SearchRepository

@@ -1,4 +1,4 @@
-package com.alisdn.githubsearcher.presentation
+package com.alisdn.githubsearcher.presentation.screen
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
@@ -50,7 +50,7 @@ import com.alisdn.githubsearcher.R
 import com.alisdn.githubsearcher.presentation.model.UserItem
 import com.alisdn.githubsearcher.presentation.model.UserReposItem
 import com.alisdn.githubsearcher.presentation.navigation.navigateRepoDetail
-import com.alisdn.githubsearcher.ui.SimpleTopAppBar
+import com.alisdn.githubsearcher.ui.TopAppBar
 import com.alisdn.githubsearcher.ui.theme.space
 
 @Composable
@@ -68,7 +68,7 @@ fun SearchScreen(
 ) {
     Scaffold(
         topBar = {
-            SimpleTopAppBar(title = stringResource(id = R.string.app_name))
+            TopAppBar(title = stringResource(id = R.string.app_name))
         },
         content = {
             SearchScreenContent(

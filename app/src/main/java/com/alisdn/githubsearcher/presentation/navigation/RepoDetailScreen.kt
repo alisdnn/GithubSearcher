@@ -7,7 +7,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.alisdn.githubsearcher.presentation.SharedViewModel
+import com.alisdn.githubsearcher.presentation.viewmodel.SharedViewModel
 import com.alisdn.githubsearcher.presentation.route.RepoDetailRoute
 
 const val REPO_DETAIL_ROUTE = "repo_detail"

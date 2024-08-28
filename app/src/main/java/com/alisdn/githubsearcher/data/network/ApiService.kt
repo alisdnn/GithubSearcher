@@ -1,7 +1,7 @@
 package com.alisdn.githubsearcher.data.network
 
-import com.alisdn.githubsearcher.domain.model.UserModel
-import com.alisdn.githubsearcher.domain.model.UserReposModel
+import com.alisdn.githubsearcher.data.network.response.UserReposResponse
+import com.alisdn.githubsearcher.data.network.response.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alisdn.githubsearcher.domain.model.ProfileRepository
-import com.alisdn.githubsearcher.domain.model.SearchRepository
+import com.alisdn.githubsearcher.domain.repository.ProfileRepository
+import com.alisdn.githubsearcher.domain.repository.SearchRepository
 import com.alisdn.githubsearcher.domain.model.UserModel
 import com.alisdn.githubsearcher.domain.model.UserReposModel
 import com.alisdn.githubsearcher.presentation.model.UserItem

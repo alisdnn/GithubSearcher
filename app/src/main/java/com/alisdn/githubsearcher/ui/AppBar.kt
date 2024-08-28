@@ -24,7 +24,7 @@ import com.alisdn.githubsearcher.ui.theme.space
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleTopAppBar(title: String) {
+fun TopAppBar(title: String) {
     TopAppBar(
         title = {
             Row(
@@ -47,7 +47,7 @@ fun SimpleTopAppBar(title: String) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleTopAppBar(
+fun TopAppBar(
     title: String,
     onBackClick: () -> Unit
 ) {

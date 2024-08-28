@@ -1,4 +1,4 @@
-package com.alisdn.githubsearcher.presentation
+package com.alisdn.githubsearcher.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

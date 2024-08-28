@@ -5,7 +5,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.alisdn.githubsearcher.presentation.SharedViewModel
+import com.alisdn.githubsearcher.presentation.viewmodel.SharedViewModel
 import com.alisdn.githubsearcher.presentation.navigation.REPO_DETAIL_ROUTE
 import com.alisdn.githubsearcher.presentation.navigation.repoDetailScreen
 import com.alisdn.githubsearcher.presentation.route.SearchRoute

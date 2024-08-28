@@ -1,4 +1,4 @@
-package com.alisdn.githubsearcher.data.network
+package com.alisdn.githubsearcher.data.network.response
 
 import com.alisdn.githubsearcher.domain.model.UserReposModel
 import kotlinx.serialization.SerialName
