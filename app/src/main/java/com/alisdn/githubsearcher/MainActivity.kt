@@ -5,12 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.alisdn.githubsearcher.ui.theme.GithubSearcherTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,10 +20,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GithubSearcherTheme {
-                Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
-                    NavGraph()
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    AddNavigation()
                 }
             }
         }
+    }
+}
+
+@Composable
+fun AddNavigation(){
+    val navController: NavHostController = rememberNavController()
+    NavGraph() {
+        navController.navigateUp()
     }
 }

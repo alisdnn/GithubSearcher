@@ -7,8 +7,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.alisdn.githubsearcher.presentation.RepoDetailScreen
 import com.alisdn.githubsearcher.presentation.SharedViewModel
+import com.alisdn.githubsearcher.presentation.route.RepoDetailRoute
 
 const val REPO_DETAIL_ROUTE = "repo_detail"
 
@@ -72,14 +72,14 @@ fun NavGraphBuilder.repoDetailScreen(
         val stars = it.arguments?.getString(STARS)
         val name = it.arguments?.getString(NAME)
 
-        RepoDetailScreen(
-//            sharedViewModel = sharedViewModel,
-//            onBackClick = onBackClick,
-//            repoDescription = description.orEmpty(),
-//            repoTitle = title.orEmpty(),
-//            avatarUrl = avatarUrl.orEmpty(),
-//            stars = stars.orEmpty(),
-//            name = name.orEmpty()
+        RepoDetailRoute(
+            sharedViewModel = sharedViewModel,
+            onBackClick = onBackClick,
+            repoDescription = description.orEmpty(),
+            repoTitle = title.orEmpty(),
+            avatarUrl = avatarUrl.orEmpty(),
+            stars = stars.orEmpty(),
+            name = name.orEmpty()
         )
     }
 }

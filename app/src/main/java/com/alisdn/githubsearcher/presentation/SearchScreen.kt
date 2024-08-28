@@ -99,7 +99,7 @@ fun SearchScreenContent(
     sumForks: (List<UserReposItem>) -> Unit,
     stopCalculation: () -> Unit,
 ) {
-    var text by rememberSaveable { mutableStateOf("") }
+    var text by rememberSaveable { mutableStateOf("alisdnn") }
     val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(
