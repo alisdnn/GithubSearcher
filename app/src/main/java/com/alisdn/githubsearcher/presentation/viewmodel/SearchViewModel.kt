@@ -51,7 +51,7 @@ class SearchViewModel @Inject constructor(
             }
 
             try {
-                profileRepository.searchUserDetail(userName).let {
+                profileRepository.getUserDetail(userName).let {
                     onSuccessResponse(it)
                 }
             }catch (e:Exception){

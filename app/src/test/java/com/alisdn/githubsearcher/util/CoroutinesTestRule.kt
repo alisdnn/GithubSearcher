@@ -1,4 +1,4 @@
-package com.example.githubuserfinder.util
+package com.alisdn.githubsearcher.util
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

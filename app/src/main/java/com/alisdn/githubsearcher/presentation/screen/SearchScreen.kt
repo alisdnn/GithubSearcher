@@ -100,7 +100,7 @@ fun SearchScreenContent(
     sumForks: (List<UserReposItem>) -> Unit,
     stopCalculation: () -> Unit,
 ) {
-    var text by rememberSaveable { mutableStateOf("alisdnn") }
+    var text by rememberSaveable { mutableStateOf("") }
     val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(
@@ -116,6 +116,10 @@ fun SearchScreenContent(
                     text = it
                 },
                 label = { Text(text = stringResource(id = R.string.hint_search)) },
+                modifier = Modifier
+                    .padding(MaterialTheme.space.small)
+                    .testTag("search_user")
+                    .weight(1f),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Done
@@ -124,10 +128,6 @@ fun SearchScreenContent(
                     keyboardController?.hide()
                     searchUser(text)
                 }),
-                modifier = Modifier
-                    .padding(MaterialTheme.space.small)
-                    .testTag("search_user")
-                    .weight(1f),
                 singleLine = true,
                 colors = TextFieldDefaults.colors(
                     unfocusedContainerColor = Color.Transparent,

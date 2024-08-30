@@ -1,8 +1,9 @@
 package com.alisdn.githubsearcher.data.repository
 
-import com.alisdn.githubsearcher.data.network.response.UserResponse
-import com.alisdn.githubsearcher.domain.repository.SearchRepository
-import com.example.githubuserfinder.util.CoroutinesTestRule
+import com.alisdn.githubsearcher.data.network.ApiService
+import com.alisdn.githubsearcher.domain.model.UserModel
+import com.alisdn.githubsearcher.domain.repository.ProfileRepository
+import com.alisdn.githubsearcher.util.CoroutinesTestRule
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.MatcherAssert
 import org.junit.Before
@@ -23,27 +24,27 @@ class GetUserDetailRepoImplTest {
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
 
-    private val baseCloudRepository: BaseCloudRepository = mock()
-    private lateinit var getUsersRepository: GetUserDetailRepository
+    private val apiService: ApiService = mock()
+    private lateinit var profileRepository: ProfileRepository
 
     @Before
     fun setUp() {
-        getUsersRepository = SearchRepository(baseCloudRepository)
+        profileRepository = ProfileRepository(apiService)
     }
 
     @Test
-    fun `the response should be get successfully when getUsersRepository is called`() = runTest {
+    fun `response should be get successfully when getUsersRepository is called`() = runTest {
         // Given
         val userName = "test"
         val avatarUrl = "testUrl"
-        val response = UserResponse(userName, avatarUrl)
-        whenever(baseCloudRepository.getUserDetail(userName)) doReturn response
+        val response = UserModel(userName, avatarUrl)
+        whenever(profileRepository.getUserDetail(userName)) doReturn response
 
         // When
-        val result = getUsersRepository.getUserDetail(userName)
+        val result = profileRepository.getUserDetail(userName)
 
         // Then
         MatcherAssert.assertThat(result, `is`(response))
-        verify(baseCloudRepository).getUserDetail(userName)
+        verify(profileRepository).getUserDetail(userName)
     }
 }

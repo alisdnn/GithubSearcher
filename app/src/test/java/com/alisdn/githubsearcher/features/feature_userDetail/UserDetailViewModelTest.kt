@@ -1,17 +1,16 @@
-package com.example.githubuserfinder.features.feature_userDetail
+package com.alisdn.githubsearcher.features.feature_userDetail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import arrow.core.left
-import com.example.domain.model.error.NetworkError
-import com.example.domain.usecase.GetUserDetailUseCase
-import com.example.domain.usecase.GetUserReposRepoUseCase
-import com.example.githubuserfinder.features.feature_userDetail.model.UserItem
+import com.alisdn.githubsearcher.domain.repository.ProfileRepository
+import com.alisdn.githubsearcher.domain.repository.SearchRepository
+import com.alisdn.githubsearcher.presentation.model.UserItem
+import com.alisdn.githubsearcher.presentation.viewmodel.SearchViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.setMain
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -23,23 +22,24 @@ import org.mockito.Mockito.verify
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
+
 @ExperimentalCoroutinesApi
 class UserDetailViewModelTest {
 
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    private var getUserDetailUseCase: GetUserDetailUseCase = mock()
+    private var searchRepository: SearchRepository = mock()
 
-    private var getUserReposRepoUseCase: GetUserReposRepoUseCase = mock()
+    private var profileRepository: ProfileRepository = mock()
 
-    private lateinit var viewModel: UserDetailViewModel
+    private lateinit var viewModel: SearchViewModel
 
     private val testDispatcher = UnconfinedTestDispatcher()
 
     @Before
     fun setup() {
-        viewModel = UserDetailViewModel(getUserDetailUseCase, getUserReposRepoUseCase)
+        viewModel = SearchViewModel(searchRepository, profileRepository)
         Dispatchers.setMain(testDispatcher)
     }
 
@@ -49,17 +49,16 @@ class UserDetailViewModelTest {
     }
 
     @Test
-    fun `onSearchUser error logs error and does not update state`() = runBlocking {
+    fun `onSearchUser error and does not update state`() = runBlocking {
         val userName = "testUser"
-        val networkError = NetworkError.NotDefined(Throwable())
 
-        whenever(getUserDetailUseCase.getUserDetail(userName)).thenReturn(networkError.left())
-        whenever(getUserReposRepoUseCase.getUserRepos(userName)).thenReturn(networkError.left())
+        whenever(searchRepository.getUserRepos(userName)).thenReturn(null)
+        whenever(profileRepository.getUserDetail(userName)).thenReturn(null)
 
         viewModel.onSearchUser(userName)
 
-        verify(getUserDetailUseCase).getUserDetail(userName)
-        verify(getUserReposRepoUseCase).getUserRepos(userName)
+        verify(searchRepository).getUserRepos(userName)
+        verify(profileRepository).getUserDetail(userName)
 
         assertEquals(UserItem("", ""), viewModel.userState.value)
         assertFalse(viewModel.isImageSectionVisible.value.targetState)
