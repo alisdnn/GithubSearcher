@@ -10,7 +10,7 @@ data class UserReposItem(
     val forks: Int?,
 )
 
-internal fun UserReposModel.toUserReposItem(): UserReposItem {
+fun UserReposModel.toUserReposItem(): UserReposItem {
     return UserReposItem(
         description = description,
         name = name,

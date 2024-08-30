@@ -147,7 +147,7 @@ fun SearchScreenContent(
             ) {
                 Text(
                     text = stringResource(R.string.search),
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onBackground
                 )
 

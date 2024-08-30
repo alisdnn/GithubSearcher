@@ -3,7 +3,7 @@ package com.alisdn.githubsearcher.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alisdn.githubsearcher.presentation.model.UserReposItem
-import com.alisdn.githubsearcher.presentation.state.BadgeState
+import com.alisdn.githubsearcher.presentation.state.StarBadgeState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SharedViewModel @Inject constructor() : ViewModel() {
 
-    private val _sharedState = MutableStateFlow<BadgeState>(BadgeState.None)
+    private val _sharedState = MutableStateFlow<StarBadgeState>(StarBadgeState.None)
     val sharedState = _sharedState.asStateFlow()
 
     private var isSumForksTriggered = false
@@ -32,7 +32,7 @@ class SharedViewModel @Inject constructor() : ViewModel() {
     fun sumForks(repos: List<UserReposItem>, delay: Long = 0L) {
         if (isSumForksTriggered) return
         isSumForksTriggered = true
-        _sharedState.update { BadgeState.Loading }
+        _sharedState.update { StarBadgeState.Loading }
         sumJob = viewModelScope.launch(Dispatchers.Default) {
             _totalForks = 0
             repos.forEach { repo ->
@@ -41,7 +41,7 @@ class SharedViewModel @Inject constructor() : ViewModel() {
                 ensureActive()
             }
             _sharedState.update {
-                BadgeState.Finished(totalForks)
+                StarBadgeState.Finished(totalForks)
             }
         }
     }
@@ -50,7 +50,7 @@ class SharedViewModel @Inject constructor() : ViewModel() {
         sumJob?.cancel()
         isSumForksTriggered = false
         _sharedState.update {
-            BadgeState.None
+            StarBadgeState.None
         }
     }
 

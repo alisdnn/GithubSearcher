@@ -136,6 +136,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
 
-
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
 
 }

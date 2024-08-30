@@ -8,7 +8,7 @@ data class UserItem(
     val userName: String,
 )
 
-internal fun UserModel.toUserItem(): UserItem {
+fun UserModel.toUserItem(): UserItem {
     return UserItem(
         avatarUrl = avatarUrl.orEmpty(),
         userName = userName,

@@ -13,5 +13,3 @@ class SearchRepository
         return apiService.getUserRepos(username).map { it.toUserReposeModel() }
     }
 }
-
-// TODO: add IMPL classes

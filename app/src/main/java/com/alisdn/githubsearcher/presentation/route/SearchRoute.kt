@@ -9,7 +9,7 @@ import com.alisdn.githubsearcher.presentation.viewmodel.SharedViewModel
 import com.alisdn.githubsearcher.presentation.viewmodel.SearchViewModel
 
 @Composable
-internal fun SearchRoute(
+fun SearchRoute(
     viewModel: SearchViewModel = hiltViewModel(),
     sharedViewModel: SharedViewModel = hiltViewModel(),
     navController: NavController

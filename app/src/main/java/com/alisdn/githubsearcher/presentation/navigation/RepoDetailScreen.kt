@@ -18,7 +18,7 @@ const val REPO_DESCRIPTION = "repoDescription"
 const val STARS = "stars"
 const val NAME = "name"
 
-internal fun NavController.navigateRepoDetail(
+fun NavController.navigateRepoDetail(
     navOptions: NavOptions? = null,
     avatarUrl: String?,
     title: String?,

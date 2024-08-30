@@ -7,7 +7,7 @@ import com.alisdn.githubsearcher.presentation.screen.RepoDetailScreen
 import com.alisdn.githubsearcher.presentation.viewmodel.SharedViewModel
 
 @Composable
-internal fun RepoDetailRoute(
+fun RepoDetailRoute(
     sharedViewModel: SharedViewModel = hiltViewModel(),
     onBackClick: () -> Unit,
     avatarUrl: String,
